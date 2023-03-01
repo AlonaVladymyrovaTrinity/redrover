@@ -47,61 +47,66 @@ let bmiFunctin = () => {
   let veight = document.getElementById("veight").value;
   let height = document.getElementById("height").value;
   let bmiVal = document.getElementById("bmiVal");
-  if (name!=="" && veight!=="" && height!=="") {
-    let bmi = veight/height ** 2;
-   		 return bmiVal.textContent = name+", your BMI is "+parseFloat(bmi).toFixed(4); 
-  }
-  else return bmiVal.textContent = "Please enter values into the input fields!"
-}
+  if (name !== "" && veight !== "" && height !== "") {
+    let bmi = veight / height ** 2;
+    return (bmiVal.textContent =
+      name + ", your BMI is " + parseFloat(bmi).toFixed(4));
+  } else
+    return (bmiVal.textContent = "Please enter values into the input fields!");
+};
 
 //console.log(bmiFunctin("Alona Vladymyrova",56,155));
 
 //Swapping Variable Values Function
 //REED THIS:
 //https://tproger.ru/problems/popular-ways-to-swap/
-let isNumber = (n) => { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
+let isNumber = (n) => {
+  return !isNaN(parseFloat(n)) && !isNaN(n - 0);
+};
 
-let ifNumber = (a,b) => {
-		a = a ^ b 
-    b = b ^ a 
-    a = a ^ b;
-    return [a, b];
-}
+let ifNumber = (a, b) => {
+  a = a ^ b;
+  b = b ^ a;
+  a = a ^ b;
+  return [a, b];
+};
 
-let ifString = (a,b) => {
-	 let c;
-   c=a; a=b; b=c;
-   return [a, b];
-}
+let ifString = (a, b) => {
+  let c;
+  c = a;
+  a = b;
+  b = c;
+  return [a, b];
+};
 
 let changeVariable = () => {
-	let a = document.getElementById("var1").value;
+  let a = document.getElementById("var1").value;
   let b = document.getElementById("var2").value;
   let result = document.getElementById("chenVar");
- 
-  if (a!=="" && b!=="") {
-    if (isNumber(a)===true && isNumber(b)===true) {
-   console.log("We are Numbers");
-  result.textContent = `Variable1 = ${a}, Variable2 = ${b}\r\n`; 
-    console.log(a,b);
-    //We using XOR: ^
-    let arr = ifNumber(a,b);
-    a=arr[0]; b=arr[1];
-    console.log(a,b);
-    result.textContent += `Variable1 = ${a}, Variable2 = ${b}`;
-  }  
-   else /*if ((isNumber(a)===false && isNumber(b)===false) || (isNumber(a)===true && isNumber(b)===false) || (isNumber(a)===false && isNumber(b)===true))*/ {
-  console.log("We are not a Numbers");
-   result.textContent = `Variable1 = ${a}, Variable2 = ${b}\r\n`; 
-   console.log(a,b);
-   let arr = ifString(a,b);
-   a=arr[0]; b=arr[1];
-   console.log(a,b);
-   result.textContent += `Variable1 = ${a}, Variable2 = ${b}`; 
-  } 
-  
-  }
-  else result.textContent = "Please enter valid values into the input fields!"
 
+  if (a !== "" && b !== "") {
+    if (isNumber(a) === true && isNumber(b) === true) {
+      console.log("We are Numbers");
+      result.textContent = `Variable1 = ${a}, Variable2 = ${b}\r\n`;
+      console.log(a, b);
+      //We using XOR: ^
+      let arr = ifNumber(a, b);
+      a = arr[0];
+      b = arr[1];
+      console.log(a, b);
+      result.textContent += `Variable1 = ${a}, Variable2 = ${b}`;
+    } /*if ((isNumber(a)===false && isNumber(b)===false) || (isNumber(a)===true && isNumber(b)===false) || (isNumber(a)===false && isNumber(b)===true))*/ else {
+      console.log("We are not a Numbers");
+      result.textContent = `Variable1 = ${a}, Variable2 = ${b}\r\n`;
+      console.log(a, b);
+      let arr = ifString(a, b);
+      a = arr[0];
+      b = arr[1];
+      console.log(a, b);
+      result.textContent += `Variable1 = ${a}, Variable2 = ${b}`;
+    }
+  } else
+    result.textContent = "Please enter valid values into the input fields!";
+};
 //https://jsfiddle.net/uv1pzw6L/2/
 //https://jsfiddle.net/jmntfp27/1/
