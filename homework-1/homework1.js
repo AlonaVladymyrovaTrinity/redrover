@@ -104,3 +104,4 @@ let changeVariable = () => {
   else result.textContent = "Please enter valid values into the input fields!"
 
 //https://jsfiddle.net/uv1pzw6L/2/
+//https://jsfiddle.net/jmntfp27/1/
